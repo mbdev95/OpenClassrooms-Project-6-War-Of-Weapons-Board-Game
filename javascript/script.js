@@ -31,10 +31,10 @@ const playerPlacement = (num) => {
     x = Math.floor((Math.random() * 10) + 1);
     y = Math.floor((Math.random() * 10) + 1);
     if ( i < 1 ) {
-      $(`#${x}-${y}`).append($("<img src='.../img/soldier.svg'>").addClass("player1Img")).addClass("player_1").addClass("active");
+      $(`#${x}-${y}`).append($("<img src='img/soldier.svg'>").addClass("player1Img")).addClass("player_1").addClass("active");
     } 
     if ( i === 1 && !$(`#${x}-${y}`).hasClass("player_1") && !$(`#${x + i}-${y}`).hasClass("player_1") && !$(`#${x - i}-${y}`).hasClass("player_1") && !$(`#${x}-${y + i}`).hasClass("player_1") && !$(`#${x}-${y - i}`).hasClass("player_1")) {
-      $(`#${x}-${y}`).append($("<img src='.../img/warrior.svg'>").addClass("player2Img")).addClass("player_2");
+      $(`#${x}-${y}`).append($("<img src='img/warrior.svg'>").addClass("player2Img")).addClass("player_2");
     } else {
       i = 0;
     }
@@ -78,7 +78,7 @@ const weaponPlacement = (num) => {
     y = Math.floor((Math.random() * 10) + 1);
     if ( !$("#" + x + "-" + y).hasClass("obstacle") && !$("#" + x + "-" + y).hasClass("player_1") && !$("#" + x + "-" + y).hasClass("player_2") && !$("#" + x + "-" + y).hasClass("weapon") ) {
       if ( i === 0 ) {
-        $("#" + x + "-" + y).append($("<img src='.../img/hammer.svg'>").addClass("hammer")).addClass("weapon w-hammer");
+        $("#" + x + "-" + y).append($("<img src='img/hammer.svg'>").addClass("hammer")).addClass("weapon w-hammer");
       } else if ( i === 1 ) {
         $("#" + x + "-" + y).append($("<img src='img/crossbow.svg'>").addClass("crossbow")).addClass("weapon w-crossbow");
       } else if ( i === 2 ) {
