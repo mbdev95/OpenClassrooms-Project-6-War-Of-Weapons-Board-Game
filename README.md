@@ -13,10 +13,12 @@ Project 6 of my OpenClassrooms Front-end web developer course has greatly deepen
 
 ## User-Interface
 ![Board-Image](https://user-images.githubusercontent.com/77469447/128060219-11a46fff-21e2-47a5-a005-c77069660b74.PNG)
+
 The user-interface was created using mostly custom css with the assistance of bootstrap to allow for more efficient design. The board was created using the css grid properties of grid-template-rows and grid-template-columms to create one hundred equally sized boxes in ten rows and columns.  Meanwhile, each grid item was given a flex display value so any grid item's contents could be centered using the justify-content and align-items value of center.  Above the board a rectangle of svg weapons was positioned using absolute positioning.  The weapons move slightly when hovered over as a result of css transition and tranforms.  To the left and right of the board are column of four banners displayed using flex-column, while the contents of each banner are displayed using relative positioning.  Thus, on this project I used a diverse selection of css layout methods including absolute positioning, relative positioning, flexbox and the css grid.
 
 ## Use of Object-Oriented JavaScript
 ![Game-Object-Class-Initialization](https://user-images.githubusercontent.com/77469447/128060307-4945a614-70ef-4964-aeb4-190d1cb2fe74.PNG)
+
 I used object-oriented JavaScript to seperate the main functional components of the application into seperate object classes allowing for maintainable and organized code. The constructor method was used in each object's class as a way to communicate important data from one object class to another.  I created a script file which contains the code to run on page load. For instance, in the script file the board is loaded with all the weapons, obstacles, players and highlighted available spaces.  At the end of the script file the Game object is instantiated, as seen in the image above, with the clicked space's id passed in as an argument for the Game object class' constructor method. 
 
 ![Player-And-Board-Objects-Classes-Initialization](https://user-images.githubusercontent.com/77469447/128060331-a567eaf1-2e1f-47ed-9a7e-2127404e44f3.PNG)
@@ -25,6 +27,7 @@ The above image shows the Game object class' constructor method.  In the constru
 
 ## Programming For All Possibilies
 ![Defence-Loops-Conditions-Image](https://user-images.githubusercontent.com/77469447/128060406-4ec3af62-f76d-4246-8f58-2132d25e8835.PNG)
+
 In order to account for all possibilites in terms of player moves, I had to write many conditional statements to determine which player was active, what spaces were available for the player to move onto, which weapons were being picked up and ect.  In the above image, I first create a condition determining if the score is zero.  Another set of conditions determines who the active player is.  Loops were also used to loop through the many arrays storing data such as data pertaining to players and spaces. I learned many new ways to write conditional and loops in order to achieve more complex functionality in my applications.
 
 ## Use of jQuery
@@ -32,4 +35,5 @@ I used jQuery throughout my application to write more concise code in a more rea
 
 ## Conclusion
 ![Game-Over-Message](https://user-images.githubusercontent.com/77469447/128060489-7ee1a452-08e4-43e6-aeac-fc68bcf1ac56.PNG)
+
 In conclusion, the challenge of building a board game using object-oriented JavaScript taught me the importance of writing JavaScript that has effective streams of data communication and storage, which are all accessible from one main control point.  Furthermore, I enhanced my understanding of conditions, loops, array, objects and functions in order to be able to program for a more complex application then in previous projects. Finally, I learned and successfully used jQuery to more efficiently write JavaScript.  I look forward to using my new understanding of JavaScript to write more complex and concise code in the future.
