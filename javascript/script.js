@@ -78,13 +78,13 @@ const weaponPlacement = (num) => {
     y = Math.floor((Math.random() * 10) + 1);
     if ( !$("#" + x + "-" + y).hasClass("obstacle") && !$("#" + x + "-" + y).hasClass("player_1") && !$("#" + x + "-" + y).hasClass("player_2") && !$("#" + x + "-" + y).hasClass("weapon") ) {
       if ( i === 0 ) {
-        $("#" + x + "-" + y).append($("<img src='../img/hammer.svg'>").addClass("hammer")).addClass("weapon w-hammer");
+        $("#" + x + "-" + y).append($("<img src='img/hammer.svg'>").addClass("hammer")).addClass("weapon w-hammer");
       } else if ( i === 1 ) {
-        $("#" + x + "-" + y).append($("<img src='../img/crossbow.svg'>").addClass("crossbow")).addClass("weapon w-crossbow");
+        $("#" + x + "-" + y).append($("<img src='img/crossbow.svg'>").addClass("crossbow")).addClass("weapon w-crossbow");
       } else if ( i === 2 ) {
-        $("#" + x + "-" + y).append($("<img src='../img/sword.svg'>").addClass("sword")).addClass("weapon w-sword");
+        $("#" + x + "-" + y).append($("<img src='img/sword.svg'>").addClass("sword")).addClass("weapon w-sword");
       } else {
-        $("#" + x + "-" + y).append($("<img src='../img/gun.svg'>").addClass("gun")).addClass("weapon w-gun");
+        $("#" + x + "-" + y).append($("<img src='img/gun.svg'>").addClass("gun")).addClass("weapon w-gun");
       }
     } else {
       i -= 1;
