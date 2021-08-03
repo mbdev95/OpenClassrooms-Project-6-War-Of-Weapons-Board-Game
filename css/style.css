@@ -402,34 +402,36 @@ img[src$="trophy.svg"],
     left: 27.5%;
 }
 
-.player1WinnerImg {
+div.gameOverMessage .player1WinnerImg {
     width: 135px;
     left: 16%;
     bottom: 113px;
+    position: initial;
 }
 
-.player1WinnerScaleOutImg {
+div.gameOverMessage .player1WinnerScaleOutImg {
     transform: scale(1.15);
     transition: transform 1s ease-in-out;
 }
 
-.player1WinnerScaleInImg {
+div.gameOverMessage .player1WinnerScaleInImg {
     transform: scale(1.0);
     transition: transform 1s ease-in-out;
 }
 
-.player2WinnerImg {
+div.gameOverMessage .player2WinnerImg {
     width: 102px;
     left: 16%;
     bottom: 128px;
+    position: initial;
 }
 
-.player2WinnerScaleOutImg {
+div.gameOverMessage .player2WinnerScaleOutImg {
     transform: scale(1.15);
     transition: transform 1s ease-in-out;
 }
 
-.player2WinnerScaleInImg {
+div.gameOverMessage .player2WinnerScaleInImg {
     transform: scale(1.0);
     transition: transform 1s ease-in-out;
 }
