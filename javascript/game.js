@@ -355,7 +355,7 @@ class Game {
                 if ( +inactivePlayerScoreSpan.text() < 1 ) {
                   inactivePlayerScoreSpan.text(0);
                   // A message appears on screen here stating that the game is over.
-                  $(`#board`).append(`<div class="gameOverMessage rounded"><h4>Game Over</h4><img src='../img/soldier.svg' class='player1WinnerImg'><img src='../img/trophy.svg'><p>Player 1 is the winner!</p><button class="btn btn-light btn-playAgain" onclick="location.reload()">Play Again</button><button class="btn btn-secondary btn-close" onclick="$('.gameOverMessage').remove()">Close</button></div>`);
+                  $(`#board`).append(`<div class="gameOverMessage rounded"><h4>Game Over</h4><img src='img/soldier.svg' class='player1WinnerImg'><img src='img/trophy.svg'><p>Player 1 is the winner!</p><button class="btn btn-light btn-playAgain" onclick="location.reload()">Play Again</button><button class="btn btn-secondary btn-close" onclick="$('.gameOverMessage').remove()">Close</button></div>`);
                   // 500ms after message first appears an animation causes the player 1 image to scale out and after the image scales the trophy transitions to a 1 opacity from zero.
                   setTimeout(function() { 
                     $(`.player1WinnerImg`).addClass("player1WinnerScaleOutImg");
@@ -398,7 +398,7 @@ class Game {
                 if ( +inactivePlayerScoreSpan.text() < 1 ) {
                   inactivePlayerScoreSpan.text(0);
                   // A message appears on screen here stating that the game is over.
-                  $(`#board`).append(`<div class="gameOverMessage rounded"><h4>Game Over</h4><img src='../img/warrior.svg' class='player2WinnerImg'><img src='../img/trophy.svg'><p>Player 2 is the winner!</p><button class="btn btn-light btn-playAgain" onclick="location.reload()">Play Again</button><button class="btn btn-secondary btn-close" onclick="$('.gameOverMessage').remove()">Close</button></div>`);
+                  $(`#board`).append(`<div class="gameOverMessage rounded"><h4>Game Over</h4><img src='img/warrior.svg' class='player2WinnerImg'><img src='img/trophy.svg'><p>Player 2 is the winner!</p><button class="btn btn-light btn-playAgain" onclick="location.reload()">Play Again</button><button class="btn btn-secondary btn-close" onclick="$('.gameOverMessage').remove()">Close</button></div>`);
                   // 500ms after message an animation occurs which causes the player 2 image to scale out and after the image scales the trophy transitions to a 1 opacity from zero.
                   setTimeout(function() { 
                     $(`.player2WinnerImg`).addClass("player2WinnerScaleOutImg");
@@ -913,7 +913,7 @@ class Game {
           // A condition which if true calls the function which initiates the fight between player 1 and player 2 if the activePlayer is in a square directly left, right, up, or down from the inactive player.
           if ( $(`#${inactivePlayerColumn + 1}-${inactivePlayerRow}`).attr('id') === clickedSpace.attr("id") || $(`#${inactivePlayerColumn - 1}-${inactivePlayerRow}`).attr('id') === clickedSpace.attr("id") || $(`#${inactivePlayerColumn}-${inactivePlayerRow + 1}`).attr('id') === clickedSpace.attr("id") || $(`#${inactivePlayerColumn}-${inactivePlayerRow - 1}`).attr('id') === clickedSpace.attr("id") ) {
             //Append the html and classes causing the starting fight image and text to appear as an overlay on the board with an initial opacity of zero.
-            $(`#board`).append($("<img src='../img/two_boxers.svg'>").addClass("startFightImageOpacityZero"));
+            $(`#board`).append($("<img src='img/two_boxers.svg'>").addClass("startFightImageOpacityZero"));
             // The player's id plus one (plus one is to account for the player array index starting at 0) is determined in order to use this value as the player's number in the text which appears to tell the player whose turn it is to start the fight.
             let playerId;
             for ( let i = 0; i < this.players.length; i++ ) {
