@@ -405,7 +405,7 @@ img[src$="trophy.svg"],
 div.gameOverMessage .player1WinnerImg {
     width: 135px;
     left: 10%;
-    bottom: 25%;
+    top: 25%;
 }
 
 div.gameOverMessage .player1WinnerScaleOutImg {
@@ -421,7 +421,7 @@ div.gameOverMessage .player1WinnerScaleInImg {
 div.gameOverMessage .player2WinnerImg {
     width: 102px;
     left: 13%;
-    bottom: 25%;
+    top: 25%;
 }
 
 div.gameOverMessage .player2WinnerScaleOutImg {
