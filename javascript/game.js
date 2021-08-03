@@ -888,7 +888,7 @@ class Game {
           // A clickedPreviousSpaceArray contains the clicked space and the previous active player's space which are both then used in the availableSpaces method to highlight available spaces for the new active player's turn.
           if ( activePlayer === "player_1") {
             $(`#${activePlayerColumn}-${activePlayerRow}`).removeClass('player_1');
-            clickedSpace.append($("<img src='../img/soldier.svg'>").addClass("player1Img")).addClass("player_1");
+            clickedSpace.append($("<img src='img/soldier.svg'>").addClass("player1Img")).addClass("player_1");
             const previousPlayerSpace = $(`#${activePlayerColumn}-${activePlayerRow}`);
             this.switchPlayer();
             let clickedPreviousSpaceArray = [];
@@ -900,7 +900,7 @@ class Game {
           // A clickedPreviousSpaceArray contains the clicked space and the previous active player's space which are both then used in the availableSpaces method to highlight available spaces for the new active player's turn.
           if ( activePlayer === "player_2") {
             $(`#${activePlayerColumn}-${activePlayerRow}`).removeClass('player_2');
-            clickedSpace.append($("<img src='../img/warrior.svg'>").addClass("player2Img")).addClass("player_2");
+            clickedSpace.append($("<img src='img/warrior.svg'>").addClass("player2Img")).addClass("player_2");
             const previousPlayerSpace = $(`#${activePlayerColumn}-${activePlayerRow}`);
             this.switchPlayer();
             let clickedPreviousSpaceArray = [];
