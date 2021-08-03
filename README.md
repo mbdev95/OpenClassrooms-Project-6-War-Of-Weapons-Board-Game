@@ -1,4 +1,4 @@
-# OpenClassrooms-Project-6-War-Of-Weapons-Board-Game
+# War-Of-Weapons-Board-Game
 
 ### A link to view the War of Weapons board game is below:
 https://mbdev95.github.io/OpenClassrooms-Project-6-War-Of-Weapons-Board-Game/
