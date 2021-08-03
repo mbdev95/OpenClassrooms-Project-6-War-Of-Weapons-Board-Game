@@ -206,11 +206,12 @@ img[src^="img/gun"]:hover {
 }
 
 #board .player_2 img.player2Img {
-    height: 55px;
+    height: 50px;
 }
 
 #board .player_1 img.player1Img , #board .player_2 img.player2Img {
     z-index: 20;
+    position: initial;
 }
 
 /* Weapons randomly placed on board as a part of js initializtion */
