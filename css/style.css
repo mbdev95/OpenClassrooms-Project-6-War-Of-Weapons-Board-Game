@@ -214,7 +214,10 @@ img[src^="img/gun"]:hover {
 }
 
 /* Weapons randomly placed on board as a part of js initializtion */
-.hammer, .crossbow, .sword, .gun {
+img[src^="img/hammer"].hammer, 
+img[src^="img/crossbow"].crossbow, 
+img[src^="img/sword"].sword,
+img[src^="img/gun"].gun {
     position: absolute;
     z-index: 10;
 }
