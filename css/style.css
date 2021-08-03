@@ -201,15 +201,15 @@ img[src^="img/gun"]:hover {
 }
 
 /* Player images randomly placed on board as html in js initialization*/
-.player1Img {
+#board .player_1 img.player1Img {
     height: 65px;
 }
 
-.player2Img {
+#board .player_2 img.player2Img {
     height: 55px;
 }
 
-.player1Img, .player2Img {
+#board .player_1 img.player1Img , #board .player_2 img.player2Img {
     z-index: 20;
 }
 
