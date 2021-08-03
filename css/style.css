@@ -126,47 +126,47 @@ h3,
     top: 33px; 
 }
 
-img[src^="img/hammer"], 
-img[src^="img/crossbow"], 
-img[src^="img/sword"],
-img[src^="img/gun"] {
+#weaponWrapper1 img[src^="img/hammer"], 
+#weaponWrapper2 img[src^="img/crossbow"], 
+#weaponWrapper3 img[src^="img/sword"],
+#weaponWrapper4 img[src^="img/gun"] {
     height: 50px;
     transition: transform 1s ease-out 0.2s;
 }
 
 
-img[src^="img/hammer"] {
+#weaponWrapper1 img[src^="img/hammer"] {
     top: 55px;
     left: 17px;
 }
 
-img[src^="img/hammer"]:hover {
+#weaponWrapper1 img[src^="img/hammer"]:hover {
     transform: rotate(-90deg);
 }
 
-img[src^="img/crossbow"] {
+#weaponWrapper2 img[src^="img/crossbow"] {
     top: 50px;
     left: 15px;
 }
 
-img[src^="img/crossbow"]:hover {
+#weaponWrapper2 img[src^="img/crossbow"]:hover {
     transform: rotate(-45deg);
 }
 
-img[src^="img/sword"] {
+#weaponWrapper3 img[src^="img/sword"] {
     top: 50px;
     left: 30px;
 }
 
-img[src^="img/sword"]:hover {
+#weaponWrapper3 img[src^="img/sword"]:hover {
     transform: rotate(30deg) rotate(-90deg);
 }
 
-img[src^="img/gun"] {
+#weaponWrapper4 img[src^="img/gun"] {
     top: 47px;
 }
 
-img[src^="img/gun"]:hover {
+#weaponWrapper4 img[src^="img/gun"]:hover {
     transform: rotate(-25deg);
 }
 
