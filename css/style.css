@@ -214,15 +214,15 @@ img[src^="img/gun"]:hover {
 }
 
 /* Weapons randomly placed on board as a part of js initializtion */
-img[src^="img/hammer"].hammer, 
-img[src^="img/crossbow"].crossbow, 
-img[src^="img/sword"].sword,
-img[src^="img/gun"].gun {
+#board .w-hammer img.hammer, 
+#board .w-crossbow img.crossbow, 
+#board .w-sword img.sword,
+#board .w-gun img.gun {
     position: absolute;
     z-index: 10;
 }
 
-.hammer {
+#board .w-hammer img.hammer {
     height: 53px;
     top: 1.5px;
     left: 10px;
@@ -230,7 +230,7 @@ img[src^="img/gun"].gun {
     bottom: 1.5px;
 }
 
-.crossbow {
+#board .w-crossbow img.crossbow {
     height: 55px;
     top: 0px;
     left: 0px;
@@ -238,7 +238,7 @@ img[src^="img/gun"].gun {
     bottom: 0px;
 }
 
-.sword {
+#board .w-sword img.sword {
     height: 35px;
     top: 10px;
     left: 0px;
@@ -246,7 +246,7 @@ img[src^="img/gun"].gun {
     bottom: 0px;
 }
 
-.gun {
+#board .w-gun img.gun {
     height: 35px;
     top: 10px;
     left: 2.25px;
