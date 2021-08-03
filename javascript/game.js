@@ -791,7 +791,7 @@ class Game {
               } 
               // If a player has a weapon the weapon is placed on the board in replacement of the weapon the active player has just picked up.
               if ( this.activePlayerWeapon().weapon.length > 0 ) {                  
-                $(`#${clickedSpaceColumn}-${clickedSpaceRow}`).append($(`<img src='../img/${this.activePlayerWeapon().weapon[1]}.svg'>`).addClass(`${this.activePlayerWeapon().weapon[1]}`)).addClass("weapon");                                  
+                $(`#${clickedSpaceColumn}-${clickedSpaceRow}`).append($(`<img src='img/${this.activePlayerWeapon().weapon[1]}.svg'>`).addClass(`${this.activePlayerWeapon().weapon[1]}`)).addClass("weapon");                                  
               }
               // The active player's damage amount is updated and the loop breaks to allow the player to move.
               $(`.${activePlayer}Info p`).text(20);
@@ -818,7 +818,7 @@ class Game {
               } 
               // If a player has a weapon the weapon is placed on the board in replacement of the weapon the active player has just picked up.
               if ( this.activePlayerWeapon().weapon.length > 0 ) {                  
-                $(`#${clickedSpaceColumn}-${clickedSpaceRow}`).append($(`<img src='../img/${this.activePlayerWeapon().weapon[1]}.svg'>`).addClass(`${this.activePlayerWeapon().weapon[1]}`)).addClass("weapon");                                  
+                $(`#${clickedSpaceColumn}-${clickedSpaceRow}`).append($(`<img src='img/${this.activePlayerWeapon().weapon[1]}.svg'>`).addClass(`${this.activePlayerWeapon().weapon[1]}`)).addClass("weapon");                                  
               }
               // The active player's damage amount is updated and the loop breaks to allow the player to move.
               $(`.${activePlayer}Info p`).text(30);
@@ -845,7 +845,7 @@ class Game {
               } 
               // If a player has a weapon the weapon is placed on the board in replacement of the weapon the active player has just picked up.
               if ( this.activePlayerWeapon().weapon.length > 0 ) {                  
-                $(`#${clickedSpaceColumn}-${clickedSpaceRow}`).append($(`<img src='../img/${this.activePlayerWeapon().weapon[1]}.svg'>`).addClass(`${this.activePlayerWeapon().weapon[1]}`)).addClass("weapon");                                  
+                $(`#${clickedSpaceColumn}-${clickedSpaceRow}`).append($(`<img src='img/${this.activePlayerWeapon().weapon[1]}.svg'>`).addClass(`${this.activePlayerWeapon().weapon[1]}`)).addClass("weapon");                                  
               } 
               // The active player's damage amount is updated and the loop breaks to allow the player to move.
               $(`.${activePlayer}Info p`).text(40);
@@ -872,7 +872,7 @@ class Game {
               } 
               // If a player has a weapon the weapon is placed on the board in replacement of the weapon the active player has just picked up.
               if ( this.activePlayerWeapon().weapon.length > 0 ) {                  
-                $(`#${clickedSpaceColumn}-${clickedSpaceRow}`).append($(`<img src='../img/${this.activePlayerWeapon().weapon[1]}.svg'>`).addClass(`${this.activePlayerWeapon().weapon[1]}`)).addClass("weapon");                                  
+                $(`#${clickedSpaceColumn}-${clickedSpaceRow}`).append($(`<img src='img/${this.activePlayerWeapon().weapon[1]}.svg'>`).addClass(`${this.activePlayerWeapon().weapon[1]}`)).addClass("weapon");                                  
               } 
               // The active player's damage amount is updated and the loop breaks to allow the player to move.
               $(`.${activePlayer}Info p`).text(50);
