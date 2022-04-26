@@ -6,7 +6,7 @@ class Game {
     this.movePlayer = this.movePlayer(clickedSpace);
   }
 
-// Game - players() - create the players object class for player 1 and player 2 by calling the player class twice with arguements passed unique to player 1's and player 2's name, id, and active boolean value.  Store both player objects in a players array, and return the array.
+// Game - players() - create the players object class for player 1 and player 2 by calling the player class twice with arguements passed unique to player 1's and player 2's name, id, and active boolean value. 
   players() {
     const players = [];
     for (let i = 0; i < 2; i++) {
@@ -21,7 +21,7 @@ class Game {
     return players;
   }
 
-// Game - activePlayer() - The active player's name value is determined by finding the space object with a class of active, and then matching the space with class active's player value with a player name from the player's array. The loops have one added since the space objects are in an array starting from zero. The active player's name is returned.
+// Game - activePlayer() - The active player's name value is determined by finding the space object with a class of active, and then matching the space with class active's player value with a player name from the player's array.
   activePlayer() {
     let initialActiveSpace;
     for ( let x = 0; x < this.board.columns; x++ ) {
@@ -38,7 +38,7 @@ class Game {
     }
   }
 
-  // Game - activePlayerWeapon() - returns the activePlayer's weapon by determining who the active player is and then returning the active player weapon property's value from their player object.
+  // Game - activePlayerWeapon() - returns the activePlayer's weapon by determining who the active player is and then returning the active player's weapon.
   activePlayerWeapon() {
     if ( this.activePlayer() === "player_1" ) {
       return this.players[0].weapon;
@@ -56,7 +56,7 @@ class Game {
     }
   }
 
-// Game - activeSpace() - finds the active space by looping through all the space objects and comparing that space object's player property's name value to the activePlayer's name. The row and column values of the active space are pushed into an activeSpaceCoordinates array which is then returned.
+// Game - activeSpace() - finds the active space by looping through all the space objects and comparing that space object's player property's name value to the activePlayer's name.
   activeSpace() {
     const activePlayer = this.activePlayer();
     const activeSpaceCoordinates = [];
@@ -71,7 +71,7 @@ class Game {
     }
   }
 
-// Game - inactiveSpace() - an array of the row and column values of the space occupied by the inactive player is returned by matching the player names from a given space object's player property with the inactive player's name and then pushing those row and column values into an inactiveSpaceCoordinates array.  The array is returned.
+// Game - inactiveSpace() - an array of the row and column values of the space occupied by the inactive player is returned.
   inactiveSpace() {
     const inactivePlayer = this.inactivePlayer();
     const inactiveSpaceCoordinates = [];
@@ -86,7 +86,7 @@ class Game {
     } 
   }
 
-// Game - switchPlayer() - switches the active player by finding the space object which has the player property name equal to the active player's name and subsequently the class of active is removed from the active player's space and given to the space whose player property's name is equal with the inactive player's name. Since the active player is determined by which player's space has the class of active the player's have now switched.
+// Game - switchPlayer() - removes the active class from the current active space and adds the active class to the new active space when the players switch turns.
   switchPlayer() {
     const inactivePlayer = this.inactivePlayer();
     const activePlayer = this.activePlayer();
@@ -101,22 +101,8 @@ class Game {
     }
   }
 
-/* Game - clickableSpaces() -----
-- The arguement passed through is an array containing the clicked space (i.e. inactive space now as players have switched by the time the clickable spaces function is called) which is set to the clickedSpace variable, and an array containing the previously active space which is set to the variable previousSpace.
-- The active player's space's column and row values are derived from the activeSpace method in the Game object class.
-- The inactive player's space is determined by accessing the clicked space's column and row attribute values and using those to establish the id of the space of the now inactive player since the players have already switched.
-- A series of variables to be used in the condition section pertaining to the obstacle's column and row values, and the inactive player's column and row values are then stated.
-- Remove the clickableSpace from the top, bottom, left and right of the previous active space.
-- Iterate through an array of clickable spaces, spaces three spaces top, bottom, left or right of the active space, and add the clickableSpace class to each space three spaces away from the active space.
-- A condition is given which removes the clickableSpace class from spaces which have the inactive player or contain an obstacle.
-- Another condition checks if there is an obstacle three spaces from the active player and stores the obstacle's column or row value in an obstacle let variable declared at the starting scope of the function.
-- Another condition checks if the space with the "clickableSpace" class is beyond the obstacle, and if so then space with the "clickableSpace" class beyond the obstacle has its "clickableSpace" class removed.
-- Another condition checks if there is an inactive player three spaces from the active player and stores the inactive player's column or row value in an inactive player let variable declared at the starting scope of the function.
-- Another condition checks if a space with class "clickableSpace" is beyond the inactive player, and if so then the space with the "clickableSpace" class beyond the inactive player has the "clickableSpace" class removed.
-- The above 5 conditions are all given regardless of whether the spaces with the "clickableSpace" class are above, below, left or right by adding or subtracting the iteration's variable's value from both the column and row of the active space every time this function is executed.
-*/
+// Game - availableSpaces() - A function which determines the available spaces an active player can move into.  The parameter contains an array with the previous active space and the current active space.
   availableSpaces(clickedPreviousSpaceArray) {
-    // Variables from the arguement array representing the clicked space which is now the inactive space and the previously active space.
     const clickedSpace = clickedPreviousSpaceArray[0];
     const previousSpace = clickedPreviousSpaceArray[1];
     // Active player space variables derived from the activeSpace() method in the Game object class.
@@ -226,13 +212,7 @@ class Game {
     }
   }
 
-  /* Game - spacesWithWeapons() -----
-  - Iterates through all the spaces to determine which spaces have the class of weapon.
-  - For spaces which have a weapon a further condition determines the type of weapon by selecting for that space's weapon specific class name.
-  - An array containing the space the weapon occupies, the weapon's name, and the weapon's damage are stored in a let variable declared external to the loops and conditions. The variable is named after the weapon.
-  - After iterating through the spaces and the for loop ends the weapon variables are pushed into an array called spacesWithWeapons in the order of the weapons level of damage with least lethal weapon pushed first.
-  - The spaceWithWeapons array is then returned.
-  */
+  // Game - spacesWithWeapons() - A function which returns an array of spaces which have weapons.
   spacesWithWeapons() {
     const spacesWithWeapons = [];
     let hammer;
@@ -259,29 +239,7 @@ class Game {
     return spacesWithWeapons;
   }
 
-/* Game - fight() -----
-- The spaces are iterated through and the spaces with a class of clickableSpace are removed since the players will no longer be moving.
-- Two setTimeout functions add and remove classes which cause the board to have an overlay as the fight begins of two boxers to visually demonstrate the fight is beginning. After a few seconds the overlay disappears.
-- The inactive player and active player score's are stored in variables and two let variables which will contain player 1 and player 2's spaces are declared.
-- All the spaces are iterated through and the space with class "player_1" is set to the player1Space variable and the space with class "player_2" is set to the player2Space variable.
-- If either player 1 or player 2's space is active the opposing player's attack and defend buttons are disabled since the opposing player will not be making the first attack or defence.
-- Two defend variables for each player are set to false and turned to true when that player clicks the defend button.
-- An event listener is placed on both attack and defend buttons although only the active player's attack and defend button's will be clickable ensuring the active player can only attack or defend.
-- Within the attack event listener a condition determines if the score is zero, and if so empty quotations are returned to end the functions since if the score is zero the game is over.
-- Within the attack event listener a loop now iterates through all the spaces and the active space is found, and then a further condition determines whether the active space and thus active player is either player 1 or player 2.
-- Within the attack event listener the inactive player's score is updated with the value found by subtracting the active player's damage from the inactive players score.
-- Within the attack event listener if the inactive player's defend boolean value is true the amount subtracted from the inactive player is updated to equal only half of the active player's damage amount being subtracted from the inactive player's score.  Also, the inactive player's defend boolean value is reset to false and will only be set to true if the inactive player clicks their defend button again.
-- Within the attack event listener now that the active player has made their move their attack and defend buttons are disabled in preperation for the active and inactive players switching.
-- Within the attack event listener if the inactive player's newly updated score is less then one, such as -20, it is automatically set to 0 and empty quoations are returned after a game over message appears to end the function, the code and the game.
-- Within the attack event listener a game over message appears stating which player has won the game as well as an animation featuring the winning player scaling out and back in while a trophy transtions from zero opacity to 1.  The animations are done using css and js setTimeout functions.
-- Within the attack event listener the active class is removed from the active player's space and switched to the inactive player's space, switching the players in the game.
-- Finally, Within the attack event listener both loops looping through the spaces have their x and y values set to 11 in order for them to break their loops once the next iteration amount is checked by each for loop's condition since the iterations are not able to exceed the number columns or row (i.e. 10) for either loop.
-- Within the defend event listener a condition determines if the score is zero, and if so empty quotations are returned to end the functions since if the score is zero the game is over.
-- Within the defend event listener a loop now iterates through all the spaces and the active space is found, and then a further condition determines whether the active space and thus active player is either player 1 or player 2.
-- Within the defend event listener the active players defend boolean value is set to true so that the next time the inactive player clicks attack their attack will yeild 50 percent less damage then it otherwise would.
-- Within the defend event listener the active player is switched and active player's buttons become disabled while the inactive player's buttons become enabled.
-- Finally, Within the defend event listener the two loops iterating through the spaces have the respective x and y values set to 11 to end each loop and end the function.
-*/
+// Game - fight() - enables the fight to occur by giving damage to the opposing player.
   fight() {
     // The clickable space classes are removed since players will no longer be moving.
     for ( let col = 1; col <= this.board.columns; col++ ) {
@@ -473,17 +431,7 @@ class Game {
     });
   }
 
-/* Game - movePlayer(clickedSpace) -----
-- The clicked space is passed as the arguement which was originally passed through to the game object when the clicked space was clicked.
-- Establishes a series of conditions which limit a player to moving only on certain spaces, which are not occupied by any image other then weapons, and are one to three spaces away from the active player, as well as also ensuring the player is not able to hop over the inactive player or obstacle.
-- A first condition ensures that a player cannot move onto a space with the inactive player or an obstacle occupying the space.
-- A further set of conditions prevents the activePlayer from hopping over the inactive player.
-- A further set of conditions prevents the activePlayer from hopping over a pylon by determing if movement is horizontal or vertical, and which direction the player intends to move, followed by checking if there is an obstacle within three spaces of the direction the player has clicked, and finally seeing if the player clicks past the obstacle.  If the player clicks past the obstacle the loop breaks and the function ends.
-- A further set of conditions limit player movement only 1 to 3 spaces up, down, left, or right.
-- A further set of conditions determines if the active player has clicked on or passed over a weapon, and if so the weapon clicked on or passed over is picked up and the damage amount is updated to the weapon's damage, and the active player's current weapon is placed on the board, unless the active player has no weapon.
-- If the above necessary conditions have been met then the activePlayer's image is removed, and their image and associated class styling is added as html to the clicked space element.
-- After the active player moves the switch player function is called to switch the active player and inactive player. 
-- The fight method is executed at the end of the movePlayer() method if the condition of the former activePlayer having moved beside the former inactive player is true.
+/* Game - movePlayer(clickedSpace) - allows the active player to move onto an available space.
 */
   movePlayer(clickedSpace) {
     // Variable declarations
@@ -556,22 +504,7 @@ class Game {
 
         // A condition which determines if the active player has clicked three spaces up, down, left or right.
         if ( $(`#${activePlayerColumn + i}-${activePlayerRow}`).attr('id') === clickedSpace.attr('id') || $(`#${activePlayerColumn - i}-${activePlayerRow}`).attr('id') === clickedSpace.attr('id') || $(`#${activePlayerColumn}-${activePlayerRow + i}`).attr('id') === clickedSpace.attr('id') || $(`#${activePlayerColumn}-${activePlayerRow - i}`).attr('id') === clickedSpace.attr('id') ) {
-          // ----- MOVING PAST A SPACE[S] WITH A WEAPON -----
-          // Conditions which determine if the active moving player passes over a weapon.
-          // An array filters through the weapons, and returns only those weapon which are not undefined, in other words only the weapons on the board are returned into the array, and not the weapons in a player's possession.
-          // The code which runs when a player passes over a weapon, is put through two for loops.  The first loop accounts for the number of spaces to check for a weapon being passed over, while the second loops accounts for the number of weapons on the board to locate.
-          // A first condition checks if a player clicks on the space with the weapon three spaces away, or if a space clicked three spaces away at the first running of the loop has a weapon. 
-          // It is necessary to check if a weapon is clicked three spaces away since in the event that beside the active player is an empty space followed by a weapon, and then in the next space another weapon which is clicked, the condition allows the weapon two spaces away to not remain untouched since the conditions will now not only be true if a weapon space is clicked or if the space with the weapon is directly beside the active player's space but also if the weapon is two spaces away from the active player and one space past the weapon is a weapon which is clicked. 
-          // Another if condition checks the if the click moved past a weapon, and also is used to determine what the type is of the weapon that was passed over by comparing the id of the weapon's space that was passed over with the id of one of the weapons in the definedWeaponSpacesArray which holds all the weapons currently visible on the board.
-          // The definedWeaponSpacesArray iteration which had an id equal to the weapon's space's id is then used to define the correct iteration within the definedWeaponSpacesArray which then with a further index value of 1 yields the name of the weapon, and the name is placed in the variable weaponToBePickedUp, and with index value two gives the damage of the weapon, which is placed in the updatedDamage variable.
-          // The space with the weapon that was passed over now has that space's weapon, and type of weapon class  removed, as well as the child weapon image element. 
-          // Another further set of conditions checks what that active player's damage value is in order to determine the type of weapon the active player has.  
-          // If the damage value is the default 10 then no weapon image is placed onto the space where the active player has just collected a weapon since the active player is not in possession of any weapon.
-          // If a player's damage is not 10, then one of the four conditions testing the damage amount will be true, first causing the space with the weapon to be given the weapon type class associated with the weapon which has the same amount of damage as the player currently has on their banner.
-          // Secondly, if one of the four conditions testing the damage amount will be true, then the active player's weapon property will be filled with the array iteration within the spacesWithWeapons array which holds the information regarding the weapon the player currently has and is about to leave and replace with the weapon the active player is picking up. The weapon type class is added first since the spacesWithWeapons array filters through the spaces looking for weapons on the basis of the space having a weapon type class, and no space will have the weapon type class of the weapon in the active player's possession since that weapon has not been placed on the board and is still in the active player's possession.
-          // Now another condition tests if the player has a weapon, and if so then places that weapon on the space where the previous weapon was removed and adds the appropriate weapon type classes using the active player's weapon property's weapon name iteration, as well as adding the weapon class.
-          // The new damage amout is now updated using the updatedDamage variable.
-          // The loop will now break unless there is a weapon in the next two spaces over from the weapon that was hopped over and picked up, in order to ensure that if the click was past those spaces the weapons occupying those spaces can also have their weapons picked up and the active player's weapon dropped off.
+          // ----- Conditions which determine if the active moving player passes over a weapon -----
           
           // An array with only weapons found on the board and not in any of player's possession.
           const definedWeaponSpacesArray = this.spacesWithWeapons().filter(function(element) {
@@ -583,9 +516,7 @@ class Game {
           for ( let i = 1; i < 4; i++ ) {
             // A loop used to iterate through the array containing only weapons found on the board.
             for ( let sww = 0; sww < definedWeaponSpacesArray.length; sww++ ) {
-              //Weapons picked up as player moves right passing over the weapon.
-              // A first condition checks if a player clicks on the space with the weapon three spaces away, or if a space clicked three spaces away at the first running of the loop has a weapon. 
-              // It is necessary to check if a weapon is clicked three spaces away since in the event that beside the active player is an empty space followed by a weapon, and then in the next space another weapon which is clicked, the condition allows the weapon two spaces away to not remain untouched since the conditions will now not only be true if a weapon space is clicked or if the space with the weapon is directly beside the active player's space but also if the weapon is two spaces away from the active player and one space past the weapon is a weapon which is clicked. 
+              //Weapons picked up as player moves right passing over the weapon. 
               if ( ( $(`#${activePlayerColumn + i}-${activePlayerRow}`).hasClass("weapon") && activePlayerColumn + i !== clickedSpaceColumn ) || ( $(`#${activePlayerColumn + i + 2 }-${activePlayerRow}`).hasClass("weapon") && activePlayerColumn + i + 2 === clickedSpaceColumn ) ) {
                 if ( activePlayerColumn + i < clickedSpaceColumn && $(`#${activePlayerColumn + i}-${activePlayerRow}`).attr("id") === $(definedWeaponSpacesArray[sww][0]).attr("id") ) {
                   const weaponToBePickedUp = definedWeaponSpacesArray[sww][1];
@@ -756,19 +687,8 @@ class Game {
             }
           }
 
-          // ----- CLICKING ON A SPACE WITH A WEAPON -----
           //The conditions are used to determine whether the space clicked was a weapon, if so what type of weapon inorder for an exhange of weapons to occur, or if no weapons are in possession of the active player the weapon clicked on will be picked up only.
-          // A loop runs a single iteration over the conditions and code which pick and drop a weapon when a space with a weapon is clicked on in order to ensure that when a weapon is swapped another condition looking for the weapon that just replaced the weapon picked up will cause the weapon on the board to be picked up and be replaced with the weapon originally on the board, giving the appearance that no weapon was picked up at all.
           for ( let i = 0; i < 1; i++ ) {            
-          // A first condition checks for the type of weapon which may be occupying the clicked space by checking if the clicked space has a class which represents a weapons name.
-          // The clicked space now has the weapon's image removed as well as the classes of weapon and the type of weapon class.
-          // After determining the type of weapon occupying the clicked space a further condition checks to see what weapon is currently in the player's possesion, if any, by in the condition, selecting for the damage amount of the active player, and then determining if the activePlayer's damage amount is equal to one of the damage amounts of the weapons.  
-          // Thus, if the damage amount of the active player is the same as the damage amount of a weapon then that weapon will be the weapon currently possessed by the active player.
-          // Once the player's current weapon and weapon to be picked up has been determined the current weapon's class of "w-'weapon'" will be added while the weapon on the clicked space's class is removed in order to make the clicked space weapon still appear when the spaceswithWeapons() array is called.
-          // The activePlayer's weapon's property is updated to reflect the weapon they currently possess, but is not initially in their weapon property since for every click the weapon property is reset to an empty array.  This is why it is necessary to add the "w-weapon" class of the weapon in the active player's possession to the clicked space because the weapon was not on the board, and thus did not have a class to be included in the spacesWithWeapons array.
-          // If the damage was the default initial values of 10 then all of the conditions searching for the type of possessed weapon will be by-passed and the damage will be updated to reflect the picked up weapon, the picked up weapon will disappear, and the loop will break to allow the rest of the movePlayer function to finish.
-          // If the damage was not the default value then the condition checking if they're any weapons in possession will be true and the weapon in the active player's possession will be placed onto the clicked space by using the weapons name stored in the active player's weapon property to represent the image's name in the source attribute, as well as using the weapon's name in the active player's weapon property to add the class representing active player's previoulsy possessed weapon's name.
-          // The damage amount of the active player is updated to reflect the damage amount of the just picked up weapon and the loop breaks.
 
           // Clicking on the hammer space.
             if ( $(`#${clickedSpaceColumn}-${clickedSpaceRow}`).children().hasClass("hammer") ) {
@@ -884,8 +804,7 @@ class Game {
           $(`#${activePlayerColumn}-${activePlayerRow} img:last-of-type`).remove();
 
           // -----  MOVING PLAYER ------
-          // A condition determines if player 1 is the active player and then removes the class of player 1 from player 1's space, appends the player 1 image to the clicked space while adding player1Img class to player 1's image, and player 1's class to the just clicked on space. The players are switched.
-          // A clickedPreviousSpaceArray contains the clicked space and the previous active player's space which are both then used in the availableSpaces method to highlight available spaces for the new active player's turn.
+          // A condition determines if player 1 is the active player and then switches active players
           if ( activePlayer === "player_1") {
             $(`#${activePlayerColumn}-${activePlayerRow}`).removeClass('player_1');
             clickedSpace.append($("<img src='img/soldier.svg'>").addClass("player1Img")).addClass("player_1");
@@ -896,8 +815,7 @@ class Game {
             clickedPreviousSpaceArray.push(previousPlayerSpace);
             this.availableSpaces(clickedPreviousSpaceArray);       
           }
-          // A condition determines if player 2 is the active player and then removes the class of player 2 from player 2's space, appends the player 2 image to the clicked space while adding player2Img class to player 2's image, and player 2's class to the just clicked on space. The players are switched.
-          // A clickedPreviousSpaceArray contains the clicked space and the previous active player's space which are both then used in the availableSpaces method to highlight available spaces for the new active player's turn.
+          // A condition determines if player 2 is the active player and then switches active players
           if ( activePlayer === "player_2") {
             $(`#${activePlayerColumn}-${activePlayerRow}`).removeClass('player_2');
             clickedSpace.append($("<img src='img/warrior.svg'>").addClass("player2Img")).addClass("player_2");
